@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorehrAut", "CorehrAut\CorehrAut.csproj", "{DE10118A-AB73-4B57-8F24-C93EF48B08F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreHrTest", "LoginTest\CoreHrTest.csproj", "{FCFFABE0-AC81-4702-90E0-0C54EA373FC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE10118A-AB73-4B57-8F24-C93EF48B08F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE10118A-AB73-4B57-8F24-C93EF48B08F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE10118A-AB73-4B57-8F24-C93EF48B08F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE10118A-AB73-4B57-8F24-C93EF48B08F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFFABE0-AC81-4702-90E0-0C54EA373FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFFABE0-AC81-4702-90E0-0C54EA373FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFFABE0-AC81-4702-90E0-0C54EA373FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFFABE0-AC81-4702-90E0-0C54EA373FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pandeyavanish.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CorehrAut\\CorehrAut.csproj
+		SccProjectName1 = CorehrAut
+		SccLocalPath1 = CorehrAut
+		SccProjectUniqueName2 = LoginTest\\CoreHrTest.csproj
+		SccProjectName2 = LoginTest
+		SccLocalPath2 = LoginTest
+	EndGlobalSection
+EndGlobal
