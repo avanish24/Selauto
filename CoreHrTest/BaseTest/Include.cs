@@ -1,23 +1,33 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CorehrAut.CommonCommands;
 using CorehrAut.Navigation;
+using NUnit.Framework;
 using CorehrAut.Pages;
 using CorehrAut;
+using CorehrAut.Interfaces;
+using CorehrAut.Configuration;
+using CoreHrTest.Reporting;
+using CorehrAut.Keywords;
 
 namespace CoreHrTest
 {
-    
-    public class Include
+   [TestFixture]
+   // [TestClass]
+    public class Include : SetupTearDown
     {
-        [TestInitialize]
+       [SetUp]
+       // [TestInitialize,TestCategory("Smoke")]
         public void Init()
         {
-            Driver.Initialize();
+            IConfig config = new AppConfigReader();
+
+            Keywords.Initialize(config.GetBrowser());
             LoginPage.Goto();
-            LoginPage.LoginAs(Driver.UserName).WithPassword(Driver.Password).Login();
+            LoginPage.LoginAs(config.GetUsername()).WithPassword(config.GetPassword()).Login();
          }
-        [TestCleanup]
+        [TearDown]
+      // [TestCleanup,TestCategory("Smoke")]
         public void CleanUp()
         {
             LoginPage.CloseBrowser();

@@ -3,6 +3,12 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using CorehrAut.CommonCommands;
 using CorehrAut.Navigation;
+using CorehrAut.Interfaces;
+using CorehrAut.Configuration;
+using CorehrAut.Keywords;
+using CorehrAut.Settings;
+using OpenQA.Selenium.Support.PageObjects;
+
 
 namespace CorehrAut.Pages
 {
@@ -11,15 +17,25 @@ namespace CorehrAut.Pages
         //Refactor : should have a general menu system;
         public static void Goto()
         {
-            Driver.Instance.Manage().Window.Maximize();
-            Driver.Instance.Navigate().GoToUrl(Driver.BaseUrl);
-            var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.Title.Equals("Log In"));
+            IConfig config = new AppConfigReader();
+            Keywords.Keywords.Driver.Manage().Window.Maximize();
+            Keywords.Keywords.Driver.Navigate().GoToUrl(config.BaseUrl());
+            var wait = new WebDriverWait(Keywords.Keywords.Driver, TimeSpan.FromSeconds(10));
+            try
+            {
+                wait.Until(d => d.Title.Equals("Log In"));
+            }
+            catch
+            {
+                Console.WriteLine("Webpage not displayed");
+                Keywords.Keywords.Driver.Quit();
+            }
+           
         }
 
         public static void CloseBrowser()
         {
-            Driver.Instance.Close();
+            Keywords.Keywords.Driver.Quit();
         }
 
         public static LoginCommand LoginAs(string userName)
@@ -45,10 +61,12 @@ namespace CorehrAut.Pages
 
         public void Login()
         {
-            Commands.TypeText(".aut-input-username", userName);
-            Commands.TypeText(".aut-input-password", password);
-            Commands.Click(".aut-button-login");
-            Driver.wait(TimeSpan.FromSeconds(10));
+            //Keywords.Keywords.userNameTextBox.SendKeys(userName);
+            Commands.TypeText(Keywords.Keywords.usernameHook, userName);
+            Commands.TypeText(Keywords.Keywords.passwordHook, password);
+            Commands.Click(Keywords.Keywords.loginButtonhook);
+            
+            
          }
 
         

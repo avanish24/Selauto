@@ -3,6 +3,7 @@ using System.Threading;
 using OpenQA.Selenium;
 using CorehrAut.CommonCommands;
 using CorehrAut.Navigation;
+using CorehrAut.Keywords;
 
 
 namespace CorehrAut.Pages
@@ -13,13 +14,13 @@ namespace CorehrAut.Pages
         {
             get
             {
-                return ".aut-area-coreHr";
+                return Keywords.Keywords.coreHrPeoplePageAreaHook;
             }
         }
         public static void GoToPeople(PeopleAppFrom pageType)
         {
 
-            Driver.wait(TimeSpan.FromSeconds(10));
+            Keywords.Keywords.wait(TimeSpan.FromSeconds(10));
             switch (pageType)
             {
                 case PeopleAppFrom.Dashboard:
@@ -56,20 +57,20 @@ namespace CorehrAut.Pages
             }
             public void AddEmployee()
             {
-                if (Driver.Instance.Title.Equals("People"))
+                if (Keywords.Keywords.Driver.Title.Equals("People"))
                 {
-                    Commands.Click(".aut-button-add");
+                    Commands.Click(Keywords.Keywords.addButtonHook);
                     Thread.Sleep(5000);
-                    Commands.TypeText(".aut-input-xFirstName", firstName);
-                    Commands.TypeText(".aut-input-xLastName", lastName);
-                    Commands.TypeText(".aut-input-xEmail", firstName + Driver.dateAndTime + "@avanishmail.com");
-                    Commands.TypeText(".aut-input-xEmployeeNumber", Driver.dateAndTime);
-                    Commands.Click(".aut-input-xEmploymentStatusLookup", ".aut-area-xEmploymentStatusLookup table tbody tr[role]:nth-of-type(1) td:nth-of-type(3)");
-                    Commands.TypeText(".aut-input-xStartDate", "02/19/2017" + Keys.Enter);
-                    Commands.Click(".aut-input-xPositionLookup", ".aut-area-xPositionLookup table tbody tr[role]:nth-of-type(1) td:nth-of-type(3)");
-                    Commands.Click(".aut-input-xLocationLookup", ".aut-area-xLocationLookup table tbody tr[role]:nth-of-type(1) td:nth-of-type(3)");
-                    Commands.Click(".aut-dropdown-xEmployee-xRecordStatus", ".aut-button-activeOption");
-                    Commands.Click(".aut-button-save");
+                    Commands.TypeText(Keywords.Keywords.employeeFirstNameHook, firstName);
+                    Commands.TypeText(Keywords.Keywords.employeeLastNameHook, lastName);
+                    Commands.TypeText(Keywords.Keywords.employeeEmailHook, firstName + Keywords.Keywords.dateAndTime + "@avanishmail.com");
+                    Commands.TypeText(Keywords.Keywords.employeeNumberHook, Keywords.Keywords.dateAndTime);
+                    Commands.Click(Keywords.Keywords.employementStatusLookupHook, ".aut-area-xEmploymentStatusLookup table tbody tr[role]:nth-of-type(1) td:nth-of-type(3)");
+                    Commands.TypeText(Keywords.Keywords.employeeStartDateHook, "02/19/2017" + Keys.Enter);
+                    Commands.Click(Keywords.Keywords.employeePositionLookupHook, ".aut-area-xPositionLookup table tbody tr[role]:nth-of-type(1) td:nth-of-type(3)");
+                    Commands.Click(Keywords.Keywords.employeeLocationLookupHook, ".aut-area-xLocationLookup table tbody tr[role]:nth-of-type(1) td:nth-of-type(3)");
+                    Commands.Click(Keywords.Keywords.employeeRecordStatusLookupHook, Keywords.Keywords.activeOptionHook );
+                    Commands.Click(Keywords.Keywords.saveButtonHook);
                     Thread.Sleep(5000);
                   
                 }
@@ -77,12 +78,12 @@ namespace CorehrAut.Pages
                 public void EditEmployee()
             {
                 
-                while (!Driver.Instance.Title.Equals("People"));
+                while (!Keywords.Keywords.Driver.Title.Equals("People"));
                 Commands.TypeText("input[type='text']", firstName);
                 Commands.Click(".aut-button-xEmployeeDetail:nth-of-type(1)");
-                Commands.Click(".aut-button-edit");
-                Commands.TypeText(".aut-input-xFirstName", firstName + Driver.dateAndTime);
-                Commands.Click(".aut-button-save");
+                Commands.Click(Keywords.Keywords.employeeEditHook);
+                Commands.TypeText(Keywords.Keywords.employeeFirstNameHook, firstName + Keywords.Keywords.dateAndTime);
+                Commands.Click(Keywords.Keywords.saveButtonHook);
                 Thread.Sleep(10000);
             }
             }

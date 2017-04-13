@@ -17,10 +17,10 @@ namespace CorehrAut.Navigation
             }
             public static void Select(string tag)
             {
-                var appSwitcher = Driver.Instance.FindElement(By.CssSelector(tag));
+                var appSwitcher = Keywords.Keywords.Driver.FindElement(By.CssSelector(tag));
                 while (!appSwitcher.Displayed)
                 {
-                    Driver.Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                    Keywords.Keywords.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
                 }
                 appSwitcher.Click();
             }
