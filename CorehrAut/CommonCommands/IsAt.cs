@@ -9,7 +9,7 @@ namespace CorehrAut.CommonCommands
         {
                   
             {
-                    pageArea = Keywords.Driver.FindElement(By.CssSelector(pageItem));
+                    pageArea = Driver.Instance.FindElement(By.CssSelector(pageItem));
                 if (pageArea.Displayed)
                 { return pageArea.Displayed; }
                   return false;

@@ -39,11 +39,11 @@ namespace CorehrAut.Navigation
         public static void Select(string tag)
         {
 
-           Keywords.Driver.FindElement(By.LinkText(tag)).Click();
-            if (!Keywords.Driver.FindElement(By.LinkText(tag)).Displayed)
+           Driver.Instance.FindElement(By.LinkText(tag)).Click();
+            if (!Driver.Instance.FindElement(By.LinkText(tag)).Displayed)
             {
-                Keywords.wait(TimeSpan.FromMilliseconds(5));
-                if (!Keywords.Driver.FindElement(By.LinkText(tag)).Displayed)
+                Driver.wait(TimeSpan.FromMilliseconds(5));
+                if (!Driver.Instance.FindElement(By.LinkText(tag)).Displayed)
                     {
                         throw new Exception("Element Not Found ");
 
@@ -63,7 +63,7 @@ namespace CorehrAut.Navigation
         {
             get
             {
-                var post = Keywords.Driver.FindElements(By.CssSelector(".aut-label-userMessage"));
+                var post = Driver.Instance.FindElements(By.CssSelector(".aut-label-userMessage"));
 
                 if (post.Count > 0)
                 {
@@ -75,13 +75,13 @@ namespace CorehrAut.Navigation
             public static void DeletePost()
         {
  
-                var postPresent = Keywords.Driver.FindElements(By.CssSelector(".aut-label-userMessage"));
+                var postPresent = Driver.Instance.FindElements(By.CssSelector(".aut-label-userMessage"));
             if (postPresent.Count>0)
             {
                 if (postPresent[0].Text=="Test Post")
                 {
                     Commands.Click(".aut-button-socialFeed-post-actions", 1);
-                    Keywords.wait(TimeSpan.FromSeconds(6));
+                    Driver.wait(TimeSpan.FromSeconds(6));
                     Commands.Click(".aut-button-socialFeed-post-action-delete", 0);
                     Commands.Click(".aut-button-socialFeed-dialog-delete", 0);
                 }
