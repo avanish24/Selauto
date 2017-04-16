@@ -86,7 +86,7 @@
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Keywords\Keywords.cs" />
     <Compile Include="Navigation\Dashboard.cs" />
-    <Compile Include="Selenium\Driver.cs" />
+    <Compile Include="Driver\Driver.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\People.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -89,9 +89,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Reporting\app.config">
       <SubType>Designer</SubType>
     </None>

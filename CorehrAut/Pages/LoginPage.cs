@@ -5,7 +5,6 @@ using CorehrAut.CommonCommands;
 using CorehrAut.Navigation;
 using CorehrAut.Interfaces;
 using CorehrAut.Configuration;
-using CorehrAut.Keywords;
 using CorehrAut.Settings;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -18,9 +17,9 @@ namespace CorehrAut.Pages
         public static void Goto()
         {
             IConfig config = new AppConfigReader();
-            Keywords.Keywords.Driver.Manage().Window.Maximize();
-            Keywords.Keywords.Driver.Navigate().GoToUrl(config.BaseUrl());
-            var wait = new WebDriverWait(Keywords.Keywords.Driver, TimeSpan.FromSeconds(10));
+            Driver.Instance.Manage().Window.Maximize();
+            Driver.Instance.Navigate().GoToUrl(config.BaseUrl());
+            var wait = new WebDriverWait(Driver.Instance, TimeSpan.FromSeconds(10));
             try
             {
                 wait.Until(d => d.Title.Equals("Log In"));
@@ -28,14 +27,14 @@ namespace CorehrAut.Pages
             catch
             {
                 Console.WriteLine("Webpage not displayed");
-                Keywords.Keywords.Driver.Quit();
+                Driver.Instance.Quit();
             }
            
         }
 
         public static void CloseBrowser()
         {
-            Keywords.Keywords.Driver.Quit();
+            Driver.Instance.Quit();
         }
 
         public static LoginCommand LoginAs(string userName)
@@ -61,12 +60,10 @@ namespace CorehrAut.Pages
 
         public void Login()
         {
-            //Keywords.Keywords.userNameTextBox.SendKeys(userName);
-            Commands.TypeText(Keywords.Keywords.usernameHook, userName);
-            Commands.TypeText(Keywords.Keywords.passwordHook, password);
-            Commands.Click(Keywords.Keywords.loginButtonhook);
-            
-            
+            Commands.TypeText(Keywords.usernameHook, userName);
+            Commands.TypeText(Keywords.passwordHook, password);
+            Commands.Click(Keywords.loginButtonhook);
+           
          }
 
         

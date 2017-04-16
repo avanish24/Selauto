@@ -9,7 +9,7 @@ using CorehrAut.Interfaces;
 using CorehrAut.Configuration;
 using CorehrAut.Settings;
 using CorehrAut;
-using CorehrAut.Keywords;
+using OpenQA.Selenium.Support.PageObjects;
 
 
 namespace CorehrAut
@@ -52,7 +52,7 @@ namespace CorehrAut
             switch (driver)
             {
                 case BrowserType.Chrome:
-                    Instance = new ChromeDriver(@"E:\CHR\CorehrAut\packages\WebDriver.ChromeDriver.win32.2.28.0.0\content");
+                    Instance = new ChromeDriver(@"E:\CHR\Selauto\CorehrAut\CorehrAut\bin\Debug");
                     TurnOnWait();
                     Thread.Sleep(3000);
                     break;
@@ -65,7 +65,7 @@ namespace CorehrAut
                     TurnOnWait();
                     break;
                 case BrowserType.PhantomJS:
-                    Instance = new PhantomJSDriver(@"E:\CHR\CorehrAut\CorehrAut");
+                    Instance = new PhantomJSDriver(@"E:\CHR\Selauto\CorehrAut\CorehrAut\bin\Debug");
                     TurnOnWait();
                     break;
             }
@@ -73,8 +73,9 @@ namespace CorehrAut
         public static void wait(TimeSpan timeSpan)
         {
             Instance.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds((int)timeSpan.TotalSeconds * 1000);
-            //Thread.Sleep((int) timeSpan.TotalSeconds * 1000);
+            
         }
+        
     }
     
     }

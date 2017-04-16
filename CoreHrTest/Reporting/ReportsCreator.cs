@@ -18,7 +18,7 @@ namespace CoreHrTest.Reporting
         [OneTimeSetUp]
         public void OneTimeSetup()
         {
-            rep = ExtentManger.Instance;
+           rep = ExtentManger.Instance;
         }
 
         [SetUp]
